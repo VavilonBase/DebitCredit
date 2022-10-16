@@ -1,0 +1,6 @@
+### DOCKER DATA ###
+docker/pgadmin
+docker/pgdata
+
+### DB STRUCTURE ###
+db/
