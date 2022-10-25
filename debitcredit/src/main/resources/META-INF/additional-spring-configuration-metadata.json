@@ -1,0 +1,28 @@
+{
+  "properties": [
+    {
+      "name": "mycompany.director.lastName",
+      "type": "java.lang.String",
+      "description": "Фамилия директора компании."
+    },
+    {
+      "name": "mycompany.director.firstName",
+      "type": "java.lang.String",
+      "description": "Имя директора компании."
+    },
+    {
+      "name": "mycompany.director.middleName",
+      "type": "java.lang.String",
+      "description": "Отчество директора компании."
+    },
+    {
+      "name": "mycompany.name",
+      "type": "java.lang.String",
+      "description": "Название компании."
+    },
+    {
+      "name": "mycompany.INN",
+      "type": "java.lang.String",
+      "description": "ИНН компании."
+    }
+  ] }
