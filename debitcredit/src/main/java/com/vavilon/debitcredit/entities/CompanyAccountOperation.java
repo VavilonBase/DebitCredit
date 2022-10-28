@@ -1,17 +1,19 @@
 package com.vavilon.debitcredit.entities;
 
+import com.vavilon.debitcredit.entities.convertors.BigDecimalConvertor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.util.StringUtils;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PositiveOrZero;
 import java.math.BigDecimal;
 import java.text.DateFormat;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -87,6 +89,23 @@ public class CompanyAccountOperation implements Comparable<CompanyAccountOperati
         String pattern = "dd.MM.yyyy";
         DateFormat df = new SimpleDateFormat(pattern);
         return df.format(this.documentDate);
+    }
+
+    public String getFormatAccountBalance() {
+        return NumberFormat.getCurrencyInstance().format(this.accountOperation);
+    }
+
+    public String getFormatCurrentBalance() {
+        return NumberFormat.getCurrencyInstance().format(this.currentBalance);
+    }
+
+    public String getEditAccountOperation() {
+        return this.accountOperation.toString().replaceAll("\\s+", "");
+    }
+
+
+    public String getEditCurrentBalance() {
+        return this.currentBalance.toString().replaceAll("\\s+", "");
     }
 
     @Override

@@ -28,4 +28,12 @@ public class MyCompanyProperties {
                 directorFirstName,
                 directorMiddleName);
     }
+
+    public String getLastnameWithInitial() {
+        return String.format("%s %s.%s",
+                directorLastName,
+                directorFirstName.charAt(0),
+                directorMiddleName.charAt(0)
+        );
+    }
 }

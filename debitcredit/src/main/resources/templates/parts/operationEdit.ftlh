@@ -1,7 +1,7 @@
-<a class="btn btn-primary mt-3" data-bs-toggle="collapse" href="#collapseAddMessageForm" role="button" aria-expanded="false" aria-controls="collapseExample">
+<a class="btn btn-primary mt-3" data-bs-toggle="collapse" href="#companyAccountOperationForm" role="button" aria-expanded="false" aria-controls="collapseExample">
     Добавление операции
 </a>
-<div class="collapse <#if operation??>show</#if>" id="collapseAddMessageForm">
+<div class="collapse <#if operation??>show</#if>" id="companyAccountOperationForm">
     <div class="form-group mt-3">
         <form method="POST">
             <div class="form-group mt-2">
@@ -79,7 +79,7 @@
 
             <div class="form-group mt-2">
                 <input type="text" name="accountOperation" class="form-control ${(accountOperationError??)?string('is-invalid', '')}"
-                       value="<#if operation?? && operation.accountOperation??>${operation.accountOperation}</#if>" placeholder="Введите сумму списания (начисления)" />
+                       value="<#if operation?? && operation.accountOperation??>${operation.getEditAccountOperation()}</#if>" placeholder="Введите сумму списания (начисления)" />
                 <#if accountOperationError??>
                     <div class="invalid-feedback">
                         ${accountOperationError}
@@ -88,8 +88,15 @@
             </div>
 
             <div class="form-group mt-2">
-                <button type="submit" class="btn btn-primary">Добавить операцию</button>
+                <#if operation??>
+                    <button type="submit" class="btn btn-primary">Изменить операцию</button>
+                <#else>
+                    <button type="submit" class="btn btn-primary">Добавить операцию</button>
+                </#if>
             </div>
         </form>
+        <#if operation??>
+            <a class="btn btn-danger" href="/company/${company.id}">Отменить изменение</a>
+        </#if>
     </div>
 </div>
